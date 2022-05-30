@@ -76,9 +76,9 @@ async def get_inference(car: Car):
 
 def get_class(value):
     if value == 0:
-        return "unacc"
-    if value == 1:
         return "acc"
-    if value == 2:
+    if value == 1:
         return "good"
+    if value == 2:
+        return "unacc"
     return "very good"
