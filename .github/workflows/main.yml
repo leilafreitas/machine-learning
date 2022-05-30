@@ -34,4 +34,4 @@ jobs:
                                         
       - name: Testing API
         run:
-          pytest source/api -vv -s
+          pytest src/api -vv -s
