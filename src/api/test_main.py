@@ -24,7 +24,6 @@ def test_get_inference_unacc():
     }
 
     r = client.post("/predict", json=car)
-    print(r.json())
     assert r.status_code == 200
     assert r.json() == "unacc"
 
@@ -40,6 +39,5 @@ def test_get_inference_acc():
     }
 
     r = client.post("/predict", json=car)
-    print(r.json())
     assert r.status_code == 200
     assert r.json() == "acc"
