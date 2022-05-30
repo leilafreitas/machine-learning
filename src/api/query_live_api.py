@@ -3,13 +3,13 @@ import json
 # import pprint
 
 car = {
-        "buying": 'high',
-        "maint": 'high',
-        "doors": '3',
-        "persons": '4',
-        "lug_boot": 'med',
-        "safety": 'med'
-    }
+    "buying": 'high',
+    "maint": 'high',
+    "doors": '3',
+    "persons": '4',
+    "lug_boot": 'med',
+    "safety": 'med'
+}
 
 
 url = "https://car-evaluation-test.herokuapp.com"
