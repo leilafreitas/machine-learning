@@ -25,7 +25,6 @@ app = FastAPI()
 # declare request example data using pydantic
 # a car in our dataset has the following attributes
 class Car(BaseModel):
-
     buying: str
     maint: str
     doors: str
@@ -41,7 +40,7 @@ class Car(BaseModel):
                 "doors": '3',
                 "persons": '4',
                 "lug_boot": 'med',
-                "safety": 'med',
+                "safety": 'med'
             }
         }
 
@@ -53,7 +52,7 @@ async def initial():
     """<p><span style="font-size:20px">In this project, we will apply the skills """\
         """acquired in the Deploying a Scalable ML Pipeline in Production course to develop """\
         """a classification model on publicly available"""\
-        """<a href="https://archive.ics.uci.edu/ml/datasets/car+evaluation"> Census Bureau data</a>.</span></p>"""
+        """<a href="https://archive.ics.uci.edu/ml/datasets/car+evaluation"> Car Evaluation</a>.</span></p>"""
 
 
 @app.post("/predict")
@@ -72,4 +71,14 @@ async def get_inference(car: Car):
     # Predict test data
     predict = pipe.predict(df)
 
-    return predict[0]
+    return get_class(predict[0])
+
+
+def get_class(value):
+    if value == 0:
+        return "unacc"
+    if value == 1:
+        return "acc"
+    if value == 2:
+        return "good"
+    return "very good"
