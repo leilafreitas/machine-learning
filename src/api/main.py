@@ -60,22 +60,17 @@ async def predict(car: Car):
     
     # Download inference artifact
     model_export_path = run.use_artifact(artifact_model_name).file()
-    print('1')
     pipe = joblib.load(model_export_path)
-    print('2')
     
     # Create a dataframe from the input feature
     # note that we could use pd.DataFrame.from_dict
     # but due be only one instance, it would be necessary to
     # pass the Index.
     df = pd.DataFrame([car.dict()])
-    print('3')
     # Predict test data
     predict = pipe.predict(df)
 
-    print(predict[0])
-
-    return 'acc'
+    return get_class(predict[0])
 
 
 def get_class(value):

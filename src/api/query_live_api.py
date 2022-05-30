@@ -12,7 +12,7 @@ car = {
 }
 
 
-url = "https://car-evaluation-test.herokuapp.com"
+url = "http://127.0.0.1:8000"
 response = requests.post(f"{url}/predict",
                          json=car)
 
