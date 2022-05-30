@@ -14,7 +14,7 @@ def test_root():
 
 # a unit test that tests the status code and response 
 def test_get_inference_unacc():
-    person = {
+    car = {
         "buying": 'low',
         "maint": 'low',
         "doors": '3',
@@ -23,14 +23,14 @@ def test_get_inference_unacc():
         "safety": 'high'
     }
 
-    r = client.post("/predict", json=person)
+    r = client.post("/predict", json=car)
     print(r.json())
     assert r.status_code == 200
     assert r.json() == "unacc"
 
 # a unit test that tests the status code and response 
 def test_get_inference_acc():
-    person = {
+    car = {
         "buying": 'high',
         "maint": 'high',
         "doors": '5more',
@@ -39,7 +39,7 @@ def test_get_inference_acc():
         "safety": 'med'
     }
 
-    r = client.post("/predict", json=person)
+    r = client.post("/predict", json=car)
     print(r.json())
     assert r.status_code == 200
     assert r.json() == "acc"
